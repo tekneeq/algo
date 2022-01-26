@@ -1,4 +1,6 @@
 """
+409. Longest Palindrome
+
 Given a string s which consists of lowercase or uppercase letters,
 return the length of the longest palindrome that can be built with those letters.
 
@@ -21,6 +23,3 @@ def longest_palindrome(s: str) -> int:
         ans += 1
 
     return ans
-
-
-print(longest_palindrome("hi"))
