@@ -1,4 +1,4 @@
-from dp.problem.coin_change import coin_change, coin_change_brute
+from dp.coin_change import coin_change, coin_change_brute
 
 
 def test_coin_change():

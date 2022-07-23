@@ -1,4 +1,4 @@
-from dp.problem.longest_palin_substr import longest_palindrome
+from greedy.longest_palin_substr import longest_palindrome
 
 
 def test_longest_palindrome():
