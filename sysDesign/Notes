@@ -1,0 +1,20 @@
+1) Come up with Functional Reqs
+2) Calculate xxx (QPS / Availability)
+3) API design
+4) High-level deisgn
+5) Algorithms
+6) Data model
+
+--
+GET /v1/search/nearby
+
+Field Description Type
+latitude latitude given location decimal
+longitude longitude given lcoation decimal
+radius Optional. Default is 3 mi. int
+
+Return
+{
+    total: 10
+    businesses: [{biz objs}]
+}
