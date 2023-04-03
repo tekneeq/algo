@@ -2,7 +2,7 @@ from dp.longest_valid_paren import longest_valid_paren, longest_valid_paren_stac
 
 
 def test_longest_valid_paren():
-    #assert longest_valid_paren("(()") == 2
+    assert longest_valid_paren("(()") == 2
     #  0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16
     #  (  (  )  )  (  )  )  )  )  (  )  (  )  (  )  (  )
     #  0  0  2  4  0  6  0  0  0  0  2  0  4  0  6  0  8
