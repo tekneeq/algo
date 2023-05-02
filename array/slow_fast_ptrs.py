@@ -43,3 +43,36 @@ print(foo)
 print(two(foo))
 print(foo)
 print("done")
+
+
+# Remove the elements
+# [3, 2, 2, 3]
+# => [2, 2, _, _], 2
+
+# [2, 2, 3, 3]
+# [3, 3, 2, 2]
+# [3, 2, 2, 2]
+
+
+a = [3, 2, 2, 3]
+b = [3, 2, 2, 2]
+c = [3, 3, 2, 2]
+d = [2, 2, 3, 3]
+
+
+def two(nums, val):
+    i, k = 0, 0
+
+    while k < len(nums):
+        if nums[k] != val:
+            nums[i] = nums[k]
+            i += 1
+        k += 1
+
+    return i
+
+
+print(two(a, 3))
+print(two(b, 3))
+print(two(c, 3))
+print(two(d, 3))
