@@ -30,5 +30,32 @@ def climbStairs(n: int) -> int:
     return step(n, {})
 
 
+def memoize(func):
+    mem_dict = {}
+
+    def helper(g):
+        if g not in mem_dict:
+            mem_dict[g] = func(g)
+        return mem_dict[g]
+
+    return helper
+
+
+@memoize
+def climbStairs2(n: int) -> int:
+    if n == 0:
+        return 0
+    if n == 1:
+        return 1
+    if n == 2:
+        return 2
+
+    return climbStairs2(n - 1) + climbStairs2(n - 2)
+
+
 assert climbStairs(2) == 2
 assert climbStairs(3) == 3
+
+
+assert climbStairs2(2) == 2
+assert climbStairs2(3) == 3
