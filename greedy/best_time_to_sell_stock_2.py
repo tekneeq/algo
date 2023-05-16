@@ -58,27 +58,41 @@ def maxProfit(prices: List[int]) -> int:
         return calc(prices, 0)
 
     def peak_valley(prices):
-        i = 0
-        valley = prices[0]
-        peak = prices[0]
+        cur_idx = 0
+        valley, peak = prices[0], prices[0]
         maxprofit = 0
         last_idx = len(prices) - 1
-        while i < last_idx:
-            while i < last_idx and prices[i] >= prices[i + 1]:
-                i += 1
-            valley = prices[i]
 
-            while i < last_idx and prices[i] <= prices[i + 1]:
-                i += 1
-            peak = prices[i]
+        # t([7, 1, 5, 3, 6, 4])
+        iter_cnt = 0
+        while cur_idx < last_idx:
+            iter_cnt += 1
+            while cur_idx < last_idx and prices[cur_idx] >= prices[cur_idx + 1]:
+                cur_idx += 1
 
-            maxprofit = peak - valley
+            valley = prices[cur_idx]
+            print(f"{iter_cnt} Found valley at idx {cur_idx} with value {valley}")
+
+            while cur_idx < last_idx and prices[cur_idx] <= prices[cur_idx + 1]:
+                cur_idx += 1
+            peak = prices[cur_idx]
+
+            print(f"{iter_cnt} Found peak at idx {cur_idx} with value {peak}")
+
+            maxprofit += peak - valley
+            print(f"{iter_cnt} max profit so far {maxprofit}")
 
         return maxprofit
 
     return peak_valley(prices)
 
 
-assert maxProfit([7, 1, 5, 3, 6, 4]) == 7
-assert maxProfit([1, 2, 3, 4, 5]) == 4
-assert maxProfit([7, 6, 4, 3, 1]) == 0
+ans = maxProfit([7, 1, 5, 3, 6, 4])
+assert ans == 7
+
+ans = maxProfit([7, 1, 5, 6, 10, 4])
+assert ans == 9
+
+
+# assert maxProfit([1, 2, 3, 4, 5]) == 4
+# assert maxProfit([7, 6, 4, 3, 1]) == 0
