@@ -1,3 +1,5 @@
-# algo
+## Algorithms
 
-dp (dynamic programming)
+### Floyd's Cycle Finding Algorithm
+Time complexity O(N)
+Space complexity O(1)

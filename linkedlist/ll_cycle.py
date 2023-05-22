@@ -20,4 +20,42 @@ class ListNode:
 
 
 def hasCycle(head: Optional[ListNode]) -> bool:
-    return False
+    # Time: O(N)
+    # Space: O(N)
+    def mark():
+        cur = head
+        cycle = False
+        while cur is not None:
+            try:
+                if cur.visited:
+                    cycle = True
+                    break
+            except:
+                pass
+
+            cur.visited = True
+
+            cur = cur.next
+
+        return cycle
+
+    # Time: O(N)
+    # Space: O(1)
+    def floyd():
+        if head is None:
+            return False
+
+        slow = head
+        fast = head.next
+
+        while slow != fast:
+            if fast is None or fast.next is None:
+                # there is an END
+                return False
+
+            slow = slow.next
+            fast = fast.next.next
+
+        return True
+
+    return floyd()
