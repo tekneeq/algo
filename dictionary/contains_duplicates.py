@@ -37,10 +37,14 @@ def containsNearbyDuplicate(nums: List[int], k: int) -> bool:
 
         return False
 
-    def hashmap():
+    def hashmap_spacke_o_n():
         # when we see a num present in d, we check (if the current index - the index of d[num] ) <= k,
         # we return True, otherwise loop goes on and the duplicate key's value gets updated with current index
         # and ofcourse we return False.
+
+        # 1 2 3 1 k=3, true
+        # 1 0 1 1 k=1, true
+        # 1 2 3 1 2 3 k=2 false
         d = {}
         for i, num in enumerate(nums):
             if (
@@ -50,7 +54,33 @@ def containsNearbyDuplicate(nums: List[int], k: int) -> bool:
             d[num] = i
         return False
 
-    return hashmap()
+    def hashmap_space_o_k():
+        # nums[i] == nums[j] and abs(i - j) <= k
+        d = {}
+
+        # 1 2 1 k=0 false
+        # 1 0 1 1 k=1 true
+
+        # 1 2 3 1 k=3 true
+        # 1 2 3 1 k=2 false
+
+        # [1,2,3,1,2,3] k=3 false
+
+        if k == 0:
+            return False
+
+        for i, num in enumerate(nums):
+            if num in d:
+                return True
+
+            if len(d) == k:
+                d.pop(nums[i - k])
+
+            d[num] = 1
+
+        return False
+
+    return hashmap_space_o_k()
 
 
 assert containsNearbyDuplicate([1, 2, 1], 0) == False
