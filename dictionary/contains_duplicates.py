@@ -74,7 +74,7 @@ def containsNearbyDuplicate(nums: List[int], k: int) -> bool:
                 return True
 
             if len(d) == k:
-                d.pop(nums[i - k])
+                d.pop(nums[i - k])  # CLEVER!!!!!
 
             d[num] = 1
 
