@@ -39,4 +39,24 @@ def isPowerOfTwo(n: int) -> bool:
     return two(0, 31, n)
 
 
+def isPowerOfTwo_short(n):
+    if n == 0:
+        return False
+    while n % 2 == 0:
+        n /= 2
+    return n == 1
+
+
+def isPowerOfTwo_o_one_o_one(n):
+    if n == 0:
+        return False
+    return n & (-n) == n
+
+
+def isPowerOfTwo_o_one_o_one_bit_manipulation(n):
+    if n == 0:
+        return False
+    return n & (n - 1) == 0
+
+
 assert isPowerOfTwo(16) == True
